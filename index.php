@@ -14,12 +14,17 @@ $end_cell = $calendar->set_tbl_end();
 <?php if(isset($_GET['error_flg']) && $_GET['error_flg'] === '1'):?>
 <p>日付のエラー</p>
 <?php endif;?>
+<?php if(isset($_GET['mes']) && $_GET['mes'] === '0'):?>
+<p>ファイルを正常にアップしました。</p>
+<?php endif;?>
 <?php if(isset($_GET['mes']) && $_GET['mes'] === '1'):?>
 <p>変更は保存しました。</p>
 <?php endif;?>
 <?php if(isset($_GET['mes']) && $_GET['mes'] === '2'):?>
 <p>保存失敗しました。</p>
 <?php endif;?>
+
+<h2><?php echo $calendar->get_year();?>年<?php echo $calendar->get_month();?>月</h2>
 
 <ul>
 	<li>
@@ -36,8 +41,10 @@ $end_cell = $calendar->set_tbl_end();
 			<input type="submit" value="来月">
 		</form>
 	</li>
+	<li><a href="download.php">csvダウンロード</a></li>
+	<li><a href="upload.php">csvアップロード</a></li>
 </ul>
-<p><?php echo $calendar->get_year();?>年<?php echo $calendar->get_month();?>月</p>
+
 <table border="1">
 	<thead>
 		<tr>
