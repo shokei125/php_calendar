@@ -1,12 +1,33 @@
 <?php
 require_once('_calendar.php');
+$start_cell = $calendar->set_tbl_start();
+$end_cell = $calendar->set_tbl_end();
 ?>
 <html>
 <head>
 	<title>calendar</title>
 </head>
+<style type="text/css">
+	li{display: inline-block;}
+</style>
 <body>
 
+<ul>
+	<li>
+		<form action="index.php" method="post">
+			<input type="hidden" name="m" value=<?php echo $calendar->pre['m'];?>>
+			<input type="hidden" name="y" value=<?php echo $calendar->pre['y'];?>>
+			<input type="submit" value="先月">
+		</form>
+	</li>
+	<li>
+		<form action="index.php" method="post">
+			<input type="hidden" name="m" value=<?php echo $calendar->next['m'];?>>
+			<input type="hidden" name="y" value=<?php echo $calendar->next['y'];?>>
+			<input type="submit" value="来月">
+		</form>
+	</li>
+</ul>
 <p><?php echo $calendar->get_year();?>年<?php echo $calendar->get_month();?>月</p>
 <table border="1">
 	<thead>
@@ -20,10 +41,7 @@ require_once('_calendar.php');
 			<th>土</th>
 		</tr>
 	</thead>
-	<?php
-		$start_cell = $calendar->set_tbl_start();
-		$end_cell = $calendar->set_tbl_end();
-	?>
+
 	<tr>
 		<?php for($i = 0; $i < $start_cell; $i++):?>
 			<td>&nbsp</td>
