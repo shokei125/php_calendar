@@ -1,22 +1,22 @@
 <?php
-
+/**
+ * カレンダーの作成
+ */
 if (isset($_POST['m']) && isset($_POST['y'])) {
-	foreach($_POST as $key => $val){
-		$$key = $val;
+	foreach($_POST as $key => $value){
+		$tmp = $value;
+		$$key = $tmp;
 	}
 }else{
 	$m = date('m',strtotime('today'));
 	$y = date('Y',strtotime('today'));
 }
-
 $calendar = new Calendar($m,$y);
-$calendar->set_cell();
 
 /**
  *
  */
 class Calendar {
-
 //public:
 	public $cell = array();
 	public $pre_;
@@ -67,12 +67,12 @@ class Calendar {
 		$this->month_ = $month;
 		$this->pre = $this->set_pre();
 		$this->next = $this->set_next();
+		$this->set_cell();
 	}
 	public function get_year(){return $this->year_;}
 	public function get_month(){return $this->month_;}
 //private:
 	private $year_;
 	private $month_;
-
 	const WEEK = array('日','月','火','水','木','金','土',);
 }

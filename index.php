@@ -11,6 +11,15 @@ $end_cell = $calendar->set_tbl_end();
 	li{display: inline-block;}
 </style>
 <body>
+<?php if(isset($_GET['error_flg']) && $_GET['error_flg'] === '1'):?>
+<p>日付のエラー</p>
+<?php endif;?>
+<?php if(isset($_GET['mes']) && $_GET['mes'] === '1'):?>
+<p>変更は保存しました。</p>
+<?php endif;?>
+<?php if(isset($_GET['mes']) && $_GET['mes'] === '2'):?>
+<p>保存失敗しました。</p>
+<?php endif;?>
 
 <ul>
 	<li>
@@ -51,7 +60,7 @@ $end_cell = $calendar->set_tbl_end();
 			<?php if($calendar->get_weekday($calendar->get_month(),$value,$calendar->get_year()) === 0):?>
 				<tr>
 			<?php endif?>
-			<td><?php echo $value;?></td>
+			<td><a href=<?php echo 'edit.php?y=',$calendar->get_year(),'&m=',$calendar->get_month(),'&d=',$value;?> id=""><?php echo $value;?></a></td>
 			<?php if($key === count($calendar->cell) - 1):?>
 				<?php for($i = 0; $i < $end_cell; $i++):?>
 						<td>&nbsp</td>
