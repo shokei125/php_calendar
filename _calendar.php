@@ -11,6 +11,7 @@ if (isset($_POST['m']) && isset($_POST['y'])) {
 	$m = date('m',strtotime('today'));
 	$y = date('Y',strtotime('today'));
 }
+//インスタンスの作成
 $calendar = new Calendar($m,$y);
 
 /**
@@ -35,7 +36,7 @@ class Calendar {
 			$date['m'] = 12;
 			$date['y'] = $y - 1;
 		}else{
-			$date['m'] = $m - 1;
+			$date['m'] = $this->set_data($m - 1);
 			$date['y'] = $y;
 		}
 		return $date;
@@ -47,7 +48,7 @@ class Calendar {
 			$date['m'] = 1;
 			$date['y'] = $y + 1;
 		}else{
-			$date['m'] = $m + 1;
+			$date['m'] = $this->set_data($m + 1);
 			$date['y'] = $y;
 		}
 		return $date;
@@ -74,5 +75,8 @@ class Calendar {
 //private:
 	private $year_;
 	private $month_;
+	private function set_data($input){
+		return str_pad($input, 2, '0', STR_PAD_LEFT);
+	}
 //	const WEEK = array('日','月','火','水','木','金','土',);
 }
