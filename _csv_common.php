@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_ALL, 'ja_JP.UTF-8');
 /**
  * [get_csv 行ごとの格納]
  * @param  [type] $filename [description]

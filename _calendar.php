@@ -74,5 +74,5 @@ class Calendar {
 //private:
 	private $year_;
 	private $month_;
-	const WEEK = array('日','月','火','水','木','金','土',);
+//	const WEEK = array('日','月','火','水','木','金','土',);
 }
