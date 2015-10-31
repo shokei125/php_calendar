@@ -50,7 +50,7 @@ foreach ($new_data as $key => $value) {
 }
 $flg = fclose($handle);
 if($flg){
-	header('Location:index.php?mes=1');
+	header('Location:index.php?mes=1&y='.$y.'&m='.$m);
 	exit;
 }else{
 	header('Location:index.php?mes=2');

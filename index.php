@@ -7,21 +7,15 @@ $end_cell = $calendar->set_tbl_end();
 <head>
 	<title>calendar</title>
 </head>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/custom.js"></script>
 <style type="text/css">
 	li{display: inline-block;}
 </style>
 <body>
+<span style="display:none" id="mes_box"></span>
 <?php if(isset($_GET['error_flg']) && $_GET['error_flg'] === '1'):?>
 <p>日付のエラー</p>
-<?php endif;?>
-<?php if(isset($_GET['mes']) && $_GET['mes'] === '0'):?>
-<p>ファイルを正常にアップしました。</p>
-<?php endif;?>
-<?php if(isset($_GET['mes']) && $_GET['mes'] === '1'):?>
-<p>変更は保存しました。</p>
-<?php endif;?>
-<?php if(isset($_GET['mes']) && $_GET['mes'] === '2'):?>
-<p>保存失敗しました。</p>
 <?php endif;?>
 
 <h2><?php echo $calendar->get_year();?>年<?php echo $calendar->get_month();?>月</h2>

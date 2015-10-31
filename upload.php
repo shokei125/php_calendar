@@ -15,5 +15,6 @@
 	<input type="file" name="upfile">
 	<input type="submit" value="アップロード">
 </form>
+<a href="index.php">戻る</a>
 </body>
 </html>

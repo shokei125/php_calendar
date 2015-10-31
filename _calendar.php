@@ -7,6 +7,11 @@ if (isset($_POST['m']) && isset($_POST['y'])) {
 		$tmp = $value;
 		$$key = $tmp;
 	}
+}elseif(isset($_GET['m']) && isset($_GET['y'])){
+	foreach($_GET as $key => $value){
+		$tmp = $value;
+		$$key = $tmp;
+	}
 }else{
 	$m = date('m',strtotime('today'));
 	$y = date('Y',strtotime('today'));

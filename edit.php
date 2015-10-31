@@ -6,6 +6,7 @@
 <body>
 	<h3>編集画面</h3>
 	<form action="_csv_fin.php" method="post">
+		<input type="hidden" name="y" value=<?php echo $y;?>>
 		<input type="hidden" name="m" value=<?php echo $m;?>>
 		<input type="hidden" name="d" value=<?php echo $d;?>>
 		<textarea name="texts" id="texts" cols="30" rows="10"><?php if(!empty($words)) echo $words;?></textarea><br>
