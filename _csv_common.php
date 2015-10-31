@@ -23,7 +23,7 @@ function get_csv($filename){
  */
 function get_words($data,$day){
 	$words = '';
-//ｃｓｖからwordsのサーチ
+//csvからwordsのサーチ
 	foreach ($data as $key => $value) {
 		if($value[0] === $day){
 			unset($value[0]);

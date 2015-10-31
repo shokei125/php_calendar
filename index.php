@@ -17,7 +17,6 @@ $end_cell = $calendar->set_tbl_end();
 <?php if(isset($_GET['error_flg']) && $_GET['error_flg'] === '1'):?>
 <p>日付のエラー</p>
 <?php endif;?>
-
 <h2><?php echo $calendar->get_year();?>年<?php echo $calendar->get_month();?>月</h2>
 
 <ul>

@@ -14,7 +14,6 @@ foreach ($_GET as $key => $value) {
 }
 $day = $m.$d;
 $words = '';
-
 if(!checkdate($m, $d, $y)){
 	header('location:index.php?error_flg=1');
 	exit;

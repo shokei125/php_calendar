@@ -18,7 +18,6 @@ if (isset($_POST['m']) && isset($_POST['y'])) {
 }
 //インスタンスの作成
 $calendar = new Calendar($m,$y);
-
 /**
  *
  */
@@ -50,7 +49,7 @@ class Calendar {
 		$m = (int)$this->month_;
 		$y = (int)$this->year_;
 		if($m === 12){
-			$date['m'] = 1;
+			$date['m'] = '01';
 			$date['y'] = $y + 1;
 		}else{
 			$date['m'] = $this->set_data($m + 1);

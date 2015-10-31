@@ -5,7 +5,7 @@ try{
 	if(empty($_POST['filename'])){
 		throw new RuntimeException('月を選択してください。');
 	}else{
-		$filename = $_POST['filename'].'.csv';
+		$filename = str_pad($_POST['filename'], 2, '0',STR_PAD_LEFT). '.csv';
 	}
 	if ( !isset($_FILES['upfile']['error']) || !is_int($_FILES['upfile']['error'])) {
 		throw new RuntimeException('パラメータが不正です');
