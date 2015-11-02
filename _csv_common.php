@@ -39,18 +39,19 @@ function get_words($data,$day){
 function rand_words(){
 	$m = date('m',strtotime('today'));
 	$day = date('md',strtotime('today'));
-	$filename = './data/'.$m.'.csv';
-	$words = array();
+	$filename = __DIR__.'/data/'.$m.'.csv';
+	$word = ''; 
+	$data = array();
 	if(file_exists($filename)){
 		$data = get_csv($filename);
-	}
-	foreach($data as $key => &$value){
-		if($value[0] === $day){
-			unset($value[0]);
-			$words = $data[$key];
-			break;
+		foreach($data as $key => &$value){
+			if($value[0] === $day){
+				unset($value[0]);
+				$words = $data[$key];
+				break;
+			}
 		}
+		$word = $words[array_rand($words)];
 	}
-	$word = $words[array_rand($words)];
 	return trim($word);
 }
