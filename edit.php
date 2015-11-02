@@ -12,5 +12,6 @@
 		<textarea name="texts" id="texts" cols="30" rows="10"><?php if(!empty($words)) echo $words;?></textarea><br>
 		<input type="submit" value="編集">
 	</form>
+<a href="index.php">戻る</a>
 </body>
 </html>

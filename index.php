@@ -10,13 +10,11 @@ $end_cell = $calendar->set_tbl_end();
 <script src="./js/jquery.min.js"></script>
 <script src="./js/custom.js"></script>
 <style type="text/css">
-	li{display: inline-block;}
+li{display: inline-block;}
+.today{background: yellow;}
 </style>
 <body>
 <span style="display:none" id="mes_box"></span>
-<?php if(isset($_GET['error_flg']) && $_GET['error_flg'] === '1'):?>
-<p>日付のエラー</p>
-<?php endif;?>
 <h2><?php echo $calendar->get_year();?>年<?php echo $calendar->get_month();?>月</h2>
 
 <ul>
@@ -60,7 +58,9 @@ $end_cell = $calendar->set_tbl_end();
 			<?php if($calendar->get_weekday($calendar->get_month(),$value,$calendar->get_year()) === 0):?>
 				<tr>
 			<?php endif?>
-			<td><a href=<?php echo 'edit.php?y=',$calendar->get_year(),'&m=',$calendar->get_month(),'&d=',$value;?> id=""><?php echo $value;?></a></td>
+			<td class=<?php echo $value === date('d',strtotime('today')) ? 'today' : '' ;?>>
+				<a href=<?php echo 'edit.php?y=',$calendar->get_year(),'&m=',$calendar->get_month(),'&d=',$value;?> id=""><?php echo $value;?></a>
+			</td>
 			<?php if($key === count($calendar->cell) - 1):?>
 				<?php for($i = 0; $i < $end_cell; $i++):?>
 						<td>&nbsp</td>

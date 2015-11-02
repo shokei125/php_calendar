@@ -6,7 +6,7 @@
 <meta charset="utf-8" />
 </head>
 <body>
-<h2>$B:#F|$N0l8@(B</h2>
+<h2>今日の一言</h2>
 <p><?php echo rand_words(); ?></p>
 </body>
 </html>
