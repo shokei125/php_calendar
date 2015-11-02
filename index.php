@@ -1,5 +1,6 @@
 <?php
 require_once('_calendar.php');
+require_once('_csv_common.php');
 $start_cell = $calendar->set_tbl_start();
 $end_cell = $calendar->set_tbl_end();
 ?>
@@ -7,6 +8,7 @@ $end_cell = $calendar->set_tbl_end();
 <head>
 	<title>calendar</title>
 </head>
+<meta charset="UTF-8">
 <script src="./js/jquery.min.js"></script>
 <script src="./js/custom.js"></script>
 <style type="text/css">
@@ -75,6 +77,23 @@ li{display: inline-block;}
 <?php endif;?>
 	<tfoot></tfoot>
 </table>
+<div class="" id="">
+<?php $status = get_config();?>
+<?php if($status === 'on'):?>
+<font color="red">表示状態</font>
+<?php else:?>
+<font color="red">非表示状態</font>
+<?php endif;?>
 
+<form action="_display_cnf.php" method="post">
+	<select id="" name="display_cnf">
+		<option value="on">表示</option>
+		<option value="off">非表示</option>
+	</select>
+	<input type="submit" value="設定">
+</form>
+</div>
+<?php echo '<a href="/">Top</a>'?>
+</html>
 </body>
 </html>

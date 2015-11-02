@@ -55,3 +55,14 @@ function rand_words(){
 	}
 	return trim($word);
 }
+/**
+ * csvの表示非表示
+ */
+function get_config(){
+	return file_get_contents(__DIR__.'/data/cnf.txt');	
+}
+function set_config($cnf){
+	$r = file_put_contents('./data/cnf.txt',$cnf);
+	header('Location: index.php?mes=3');
+	exit;
+}

@@ -7,6 +7,7 @@ $(function(){
 			case '0': texts = 'ファイルを正常にアップしました。';break;
 			case '1': texts = '変更は保存しました。';break;
 			case '2': texts = '保存失敗しました。';break;
+			case '3': texts = '表示変更しました。';break;
 			default: texts = '未知のエラーです。';break;
 		}
 		switch(para.error_flg){
